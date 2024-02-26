@@ -1,3 +1,4 @@
+import 'package:first_app/screen/list_view_screen.dart';
 import 'package:flutter/material.dart';
 //ctrl + alt +o
 
@@ -10,15 +11,21 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ListViewScreen())),
+          child: const Icon(Icons.add_circle_outline),
+        ),
         body: Container(
           // height: 200,
           // height: MediaQuery.sizeOf(context).height*.25,
           decoration: BoxDecoration(
             color: Colors.blue.shade50,
-            image: DecorationImage(
+            image: const DecorationImage(
                 image: AssetImage("assets/images/image_one.svg")),
 //            border:  Border.all(width: 5, color: Colors.deepPurpleAccent),// for all side border
 //             border: Border(
@@ -39,16 +46,16 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 //ctrl +d
                 //sayem
-Text("Container"),
+                const Text("Container"),
                 Container(
                   // padding: EdgeInsets.only(left: 10),
                   // margin: EdgeInsets.only(left: 10),
                   height: 150,
                   width: MediaQuery.sizeOf(context).width * .25,
                   color: Colors.red,
-                  child: Text("Container 1"),
+                  child: const Text("Container 1"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const CircleAvatar(
@@ -64,20 +71,21 @@ Text("Container"),
                   onTap: () {
                     print("object");
                   },
-                  child: Card(
+                  child: const Card(
                     color: Colors.white,
                     shadowColor: Colors.green,
                     elevation: 5,
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       width: 150,
                     ),
                   ),
                 ),
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.account_balance_wallet)),
+                    onPressed: () {},
+                    icon: const Icon(Icons.account_balance_wallet)),
 
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
@@ -86,7 +94,7 @@ Text("Container"),
                   decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(150)),
-                  child: Text("iconOnTap"),
+                  child: const Text("iconOnTap"),
                 ),
                 Container(
                   height: 150,
@@ -94,19 +102,28 @@ Text("Container"),
                   decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(150)),
-                  child: Text("Container 3"),
+                  child: const Text("Container 3"),
                 ),
                 Container(
                   height: 150,
                   width: MediaQuery.sizeOf(context).width * .25,
                   color: Colors.red,
-                  child: Text("Container 4"),
+                  child: const Text("Container 4"),
                 ),
                 Container(
-                  height: 250,
+                  height: 400,
                   width: MediaQuery.sizeOf(context).width * .25,
                   color: Colors.yellow,
-                  child: Text("Container 5"),
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      const Text("1.My name is Sayem"),
+                      const Text("2.My name is Sayem"),
+                      const Text("3.My name is Sayem"),
+                      const Text("4.My name is Sayem"),
+                      const Text("5.My name is Sayem"),
+                    ],
+                  ),
                 ),
                 // Text("1.My name is Sayem"),
                 // Text("2.My name is Sayem"),
